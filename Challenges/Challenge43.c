@@ -23,16 +23,16 @@ int main(){
 
 	//Get minutes input from user
 	printf("Input number of minutes:");
-	scanf("%d",&input_min);
+	scanf("%d",&inputMins);
 
 	//Calculate
 	//Use casting?
 	convertYears= inputMins/minutesInYear;
-	convertDays= inpuyMins/minutesInDay;
+	convertDays= inputMins/minutesInDay;
 
 	//printf does not need address 
-	printf("%lf",convertYears);
-	printf("%lf",convertDays,);
+	printf("Number of Years: %lf \n",convertYears);
+	printf("Minutes in Days: %lf \n",convertDays);
 	 
 	return 0;
 }
