@@ -12,7 +12,13 @@ Tax rate:
 -25% of the rest
 */
 
-// a better practice to define all the taxrates as a preprocessor
+// a better practice to define all the taxrates as a preprocessor, example:
+#define PAYRATE 12.00
+#define TAXRATE_300 0.15
+#define TAXRATE_150 0.20
+#define TAXRATE_REST 0.25
+#define OVERTIME 40
+	
 #include <stdio.h>
 
 int main()
