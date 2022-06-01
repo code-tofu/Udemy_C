@@ -12,28 +12,27 @@ days
 
 #include <stdio.h>
 
-int main() {
-//standardize and use camel case
+int main(){
+	//standardize and use camel case
 
-//Initialize variables
-  int inputMins = 0;
-    double convertYears=0.0, convertDays=0.0;
-  int minutesInYear = 60*24*365;
-  int minutesInDay = 60*24;
+	//Initialize variables
+	int inputMins = 0;
+	double convertYears=0.0, convertDays=0.0;
+	int minutesInYear = 60*24*365;
+	int minutesInDay = 60*24;
 
-//Get minutes input from user
-  printf("Input number of minutes:");
-  scanf("%d",&input_min);
+	//Get minutes input from user
+	printf("Input number of minutes:");
+	scanf("%d",&input_min);
 
-//Calculate
-//Use casting?
-convertYears= inputMins/minutesInYear;
-convertDays= inpuyMins/minutesInDay;
+	//Calculate
+	//Use casting?
+	convertYears= inputMins/minutesInYear;
+	convertDays= inpuyMins/minutesInDay;
 
-//printf does not need address 
-printf("%lf",convertYears);
-printf("%lf",convertDays,);
- 
-  return 0;
+	//printf does not need address 
+	printf("%lf",convertYears);
+	printf("%lf",convertDays,);
+	 
+	return 0;
 }
-  
