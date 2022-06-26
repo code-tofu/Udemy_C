@@ -4,7 +4,6 @@ Use will input their guess
 Programme will indicate to the user if they are too high or low
 Player wins the game if they can guess within five tries
 Output to user should show number of tries, guessed number and high and low
-
 */
 
 #include <stdio.h> 
@@ -19,13 +18,13 @@ time_t t;
 srand((unsigned) time(&t));
 //get a random number 0-20) and store in int variable
 int randomNumber = rand() %21;
-printf("Random Number: %d\n", randomNumber);
+// printf("Random Number: %d\n", randomNumber); //to show random number generated for debugging
 
 //initialise guessing variables
 int playerGuess = -1, guessCount = 1;
 
-  while ((playerGuess != randomNumber) && (guessCount<6)){
-    printf("key in your Guess:");
+  while ((playerGuess != randomNumber) && (guessCount<6)){ //better practice if changing 6 to max_count
+    printf("Key in your Guess of the Chosen Number (between 0 and 20):");
     scanf("%d",&playerGuess);
     printf("You guessed %d\n",playerGuess);
     if(playerGuess == randomNumber){
@@ -51,3 +50,13 @@ int playerGuess = -1, guessCount = 1;
 return 0;
 }
 
+/* NOTES:
+Why not use a for loop?
+
+Ternery/Conditional Operator for grammatical changes
+("\n" You have %d tr%s left., numberOfGuesses, numberOfGuesses == 1? "y" : "ies");
+
+Try using tenery operator in checking higher or lower
+
+Is it okay to use multiple returns?
+*/ 

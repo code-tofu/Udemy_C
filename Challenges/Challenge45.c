@@ -9,6 +9,7 @@ Use sizeof operator
 #include <stdio.h>
 
 int main(){
+	//if C does not understand %zc, you can use %u format specifier
 	printf("Size of int: %zd bytes \n",sizeof(int));
 	printf("Size of char: %zd bytes\n",sizeof(char));
 	printf("Size of short: %zd bytes\n",sizeof(short));
@@ -18,6 +19,5 @@ int main(){
 	printf("Size of double: %zd bytes\n",sizeof(double));
 	printf("Size of float: %zd bytes\n",sizeof(float));
 	printf("Size of long double: %zd bytes\n",sizeof(long double));
-
 	return 0;
 }

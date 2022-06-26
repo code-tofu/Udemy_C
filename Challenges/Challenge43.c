@@ -17,7 +17,7 @@ int main(){
 
 	//Initialize variables
 	int inputMins = 0;
-	double convertYears=0.0, convertDays=0.0;
+	double convertYears=0.0, convertDays = 0.0;
 	int minutesInYear = 60*24*365;
 	int minutesInDay = 60*24;
 

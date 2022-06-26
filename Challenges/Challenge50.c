@@ -12,7 +12,7 @@ Tax rate:
 -25% of the rest
 */
 
-// a better practice to define all the taxrates as a preprocessor, example:
+// a better practice to define all the taxrates as a preprocessor (i.e. not using magic numbers, example:
 #define PAYRATE 12.00
 #define TAXRATE_300 0.15
 #define TAXRATE_150 0.20
