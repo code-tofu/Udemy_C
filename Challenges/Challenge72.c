@@ -7,42 +7,119 @@ Player 2 Uses "O"
 Type char array - Can either do in 1D Array or 2D Array
 */
 
+// 2D array solution:
 #include <stdio.h>
 
+//function prototypes
+int boardprint(char userBoard[3][3]);
+int editboard(char userBoard[3][3], int userNum, int userChoice);
+int boardcheck(char userBoard[3][3]);
+
 int main (){
-    
-    return 0;
+// declare and initialise array
+char mainBoard[3][3] = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+int playerChoice=1, playerTurn=1;
+int gameEnd = 0;
+//Initialise Game
+boardprint(mainBoard);
+printf("Welcome to TicTacToe! Player 1 uses X and Player 2 uses 0.\n");
+
+while(gameEnd!=1){ 
+    printf("Player %d key in the number to mark the board:",playerTurn);
+    //check player valid input
+    if(playerChoice<10 && playerChoice>0){
+        scanf("%d",&playerChoice);
+        editboard(mainBoard, playerTurn, playerChoice);
+        boardprint(mainBoard);
+        //change player turn if turn ends
+        if(playerTurn==1){
+            playerTurn = 2;
+        }
+        else{
+            playerTurn=1;
+        }
+    }
+    else{
+        printf("Please only key in 1 to 9!");
+    }
+
+
+   gameEnd = boardcheck(mainBoard);
+   if((gameEnd==1) && (playerTurn==1)){
+        printf("Player 2 Wins");
+   }
+   if((gameEnd==1) && (playerTurn==2)){
+        printf("Player 1 Wins");
+   }
+
+}
+return 0;
 }
 
 
+// Function to Print Board
+int boardprint(char userBoard[3][3]){
+  int i,j;
+    printf("\n|---|---|---|\n");
+    for(i=0;i < 3;i++){
+        printf("|");  
+        for(j=0;j < 3;j++){
+            printf(" %c ", userBoard[i][j]);    
+            printf("|");
+        }
+        printf("\n|---|---|---|\n");
+    }
+return 0;
+}
 
-/*
 
-create the functions
-- check for win
-- draw board
-- markboard and check for invalid marking
+//Function to Edit Board
+int editboard(char userBoard[3][3], int userNum, int userChoice){
 
-Printing:
-1D will be 3 or 6 + i
-2D will be j then i
+    int i,j;
+    i = (userChoice-1)/3;
+    j = (userChoice%3+2)%3;
 
-Winning:
-Check across rows i1 = i2 =i3 looped over j OR
-Check down columnns j1 = j2 = j3 looped over i OR
-Check Diagonals ij1 = ij2 = ij3 looped over ij OR
+    if(userNum==1){ //player 1 uses X
+        userBoard[i][j] = 'X';
+    } 
+    else{ //player 2 uses O
+        userBoard[i][j] = '0';
+    }
+return 0;
+}
 
-Modify:
-Modify Array Position Directly OR Modify Row-Column based on number using modulo
+int boardcheck(char userBoard[3][3]){
+    int gameWin = 0;
+    int i,j;
+    //check across rows
+    for (i=0; i<3;i++){
+        //checkcall: printf( "%d %c %c %c \n", i,userBoard[i][0],userBoard[i][1],userBoard[i][2]);
+        if((userBoard[i][0] == userBoard[i][1]) && (userBoard[i][1] == userBoard[i][2])){
+            gameWin = 1;
+        }
+    }
 
-Programme 
-Check for Win
-    Print Win, Terminate
-Print Board
-Modify Board
+    //check down columns
+    for (j=0; j < 3;j++){
+        //checkcall: printf( "%d %c %c %c \n", j ,userBoard[0][j], userBoard[1][j], userBoard[2][j]);
+        if((userBoard[0][j] == userBoard[1][j]) && (userBoard[1][j] == userBoard[2][j])){
+            gameWin = 1;
+        }
+    }
 
-//initialise tic tac toe array. 1D size 10 or 2D 3x3 i.e size 10
-// Printing Function
-// Check for Win
-// Modify  size
-*/
+    //checkcall: printf( "%d %c %c %c \n", i,userBoard[i][0],userBoard[i][1],userBoard[i][2]);
+    i=0; 
+    j=0;
+    if((userBoard[i][j] == userBoard[i+1][j+1]) && (userBoard[i+1][j+1] == userBoard[i+2][j+2])){
+        gameWin = 1;
+    }
+    i=2; 
+    j=0;
+    if((userBoard[i][j] == userBoard[i-1][j+1]) && (userBoard[i-1][j+1] == userBoard[i-2][j+2])){
+        gameWin = 1;
+    }
+
+    //checkreturn: printf("win: %d",gameWin);
+    return gameWin ;
+}
